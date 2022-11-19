@@ -13,8 +13,8 @@ const router = createRouter({
     routes:  [
         { path: '/', redirect: '/coaches'},
         { path: '/coaches', component: CoachesList},
-        { path: '/coaches/:id', component: ContactCoach, children: [
-            { path: '/contact', component: CoachDetails }
+        { path: '/coaches/:id', component: CoachDetails, children: [
+            { path: 'contact', component: ContactCoach }
     ]},
         { path: '/register', component: CoachRegistration},
         { path: '/requests', component: RequestsReceived},
