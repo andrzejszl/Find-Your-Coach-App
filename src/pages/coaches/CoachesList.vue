@@ -5,7 +5,7 @@
     <section>
         <base-card>
             <div class="controls">
-                <base-button mode="outline">Refresh</base-button>
+                <base-button mode="outline" @click="loadCoaches">Refresh</base-button>
                 <base-button v-if="!isCoach" link to="/register">Register as Couch</base-button>
             </div>
             <ul v-if="hasCouches">
@@ -64,11 +64,17 @@ import CoachFilter from '@/components/coaches/CoachFilter.vue';
                 return this.$store.getters['coaches/hasCoaches']
             },
         },
+        created() {
+            this.loadCoaches()
+        },
         methods: {
             setFilters(updatedFilters) {
                 this.activeFilters = updatedFilters
+            },
+            loadCoaches() {
+                this.$store.dispatch('coaches/loadCoaches')
             }
-        }
+        },
     }
 </script>
 
