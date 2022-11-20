@@ -1,33 +1,19 @@
 import { createStore } from "vuex";
 
+import coachesModule from './modules/coaches/index.js';
+
 export default createStore({
-  state: {
-      coaches: [
-        {
-        id: 'coach',
-        firstName: 'Manuel',
-        lastName: 'Lopez',
-        price: 39,
-        skills: ['frontend', 'career'],
-        rate: 9.6,
-        desc: "Just some stuff"
-      }, {
-        id: 'coach2',
-        firstName: 'Max',
-        lastName: 'Ligo',
-        price: 39,
-        skills: ['frontend', 'backend', 'career'],
-        rate: 9.6,
-        desc: "Easy peasy lemon squizy"
-      },
-    ]
+  modules: { 
+    coaches: coachesModule,
   },
-  getters: {
-    getCoachesList(state) {
-      return state.coaches
+  state() {
+    return {
+      userId: 'c3'
     }
   },
-  mutations: {},
-  actions: {},
-  modules: {},
+  getters: {
+    userId(state) {
+      return state.userId
+    }
+  },
 });
